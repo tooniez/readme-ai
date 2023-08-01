@@ -8,6 +8,7 @@ from typing import Dict, List, Optional
 from urllib.parse import urlparse, urlsplit
 
 import openai
+import pkg_resources
 from pydantic import BaseModel, Field, SecretStr, validator
 
 from . import factory, logger
@@ -212,13 +213,14 @@ class ConfigHelper:
                 self.language_setup.update(conf_dict["language_setup"])
 
 
-def _get_config_dict(handler: factory.FileHandler, filename: str) -> dict:
+def _get_config_dict(handler: factory.FileHandler, path: str) -> dict:
     """Get configuration dictionary from TOML file."""
-    path = Path("conf/") / filename
-    return handler.read(path)
+    file_path = Path(path)
+    resource_path = pkg_resources.resource_filename(__name__, file_path)
+    return handler.read(resource_path)
 
 
-def load_config(path: str = "conf.toml") -> AppConfig:
+def load_config(path: str = "conf/conf.toml") -> AppConfig:
     """Load configuration constants from TOML file."""
     handler = factory.FileHandler()
     conf_dict = _get_config_dict(handler, path)

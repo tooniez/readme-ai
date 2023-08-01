@@ -1,10 +1,6 @@
 # Exclude markdown files
 *.md
 
-# Exclude lock and toml files
-poetry.lock
-pyproject.toml
-
 # Exclude all .pyc files
 **/__pycache__
 
