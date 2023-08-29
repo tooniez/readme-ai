@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "readmeai"
-version = "0.1.985"
+version = "0.1.9992"
 description = "🚀 Generate awesome README.md files from the terminal, powered by OpenAI's GPT language model APIs 💫"
 authors = ["Eli <0x.eli.64s@gmail.com>"]
 license = "MIT"
@@ -32,7 +32,6 @@ keywords = [
   "llm-prompting",
   "llm-agent",
 ]
-include = ["conf/*.toml"]
 
 [tool.poetry.dev-dependencies]
 black = "*"
@@ -90,7 +89,6 @@ profile = "black"
 line_length = 88
 multi_line_output = 3
 include_trailing_comma = true
-virtual_env = ["conda", "venv", ".venv", "env", ".env", ".tox", ".nox"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
